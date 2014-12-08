@@ -1,6 +1,6 @@
 water_scarcity
 ==============
-Please disregard "eat a bag of dicks" comment. We have listened to a little too much Louis CK and running on a too little sleep.
+Please disregard the "eat a bag of dicks" comment. We have listened to a little too much Louis CK and are running on a too little sleep.
 
 Here in the Midwest we have been suffering from a drought for several years now. This drought has dramatically impacted farming and has now started to change our long term outlook for drinkable water. This is a relatively new concern for us but around the world water scarcity is a large problem. 
 
