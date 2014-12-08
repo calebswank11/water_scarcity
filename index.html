@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        
+        <link rel="icon" href="http://www.kochind.com/files/favicon.ico" type="image/x-icon" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+        <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <script src="js/d3.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.js"></script>
+        <script src="build/three.min.js"></script>
+        <script src="js/Detector.js"></script>
+        <script src="js/libs/stats.min.js"></script>
+        <script src="js/twitter_call.js"></script>
+        <script src="js/twitterFetcher_min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/geo.js"></script>
+        <script src="js/main.js"></script>
+
+        <link href='http://fonts.googleapis.com/css?family=Exo+2:400,700,300' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        
+        <div class="container">
+
+            <div class="background_placeholder"></div>
+            <div class="top_tick_marks"></div>
+            
+            <header>
+                <div class="title_header">
+                    <img id="title_left" src="images/title_left.png" alt="">
+                    <h1>Fresh water resources</h1>
+                    <img id="title_left" src="images/title_right.png" alt="">
+                    <ul class="title_lines">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="title_sub_head">
+                    <h2 class=>comprehensive data of water related issues in the world</h2>
+                </div>
+                <div class="project_title">
+                    <p id="country_name" class="country_title">USA</p>
+                </div>
+            </header>
+
+            <div class="globe_container">
+                <div id="globe">
+                    <div id="canvas_globe">
+                        <svg id="canvas_globe_svg" width="800" height="800"></svg>
+
+                        <div>
+                            <select id="proj">
+                                <option value="equalarea">equalarea</option>
+                                <option value="equidistant">equidistant</option>
+                                <option value="gnomonic">gnomonic</option>
+                                <option value="orthographic" selected>orthographic</option>
+                                <option value="stereographic">stereographic</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="animate">animate:</label>
+                            <input id="animate" type="checkbox" checked>
+                        </div>  
+
+                    </div>                    
+                </div>
+                <div class="circles">
+                    <div class="dot_wrapper">
+                        <div class="dot_circle1 dot_circles"></div>
+                        <div class="dot_circle2 dot_circles"></div>
+                        <div class="dot_circle3 dot_circles"></div>
+                        <div class="dot_circle4 dot_circles"></div>
+                        <div class="dot_circle5 dot_circles"></div>
+                        <div class="dot_circle6 dot_circles"></div>
+                        <div class="dot_circle7 dot_circles"></div>
+                        <div class="dot_circle8 dot_circles"></div>
+                        <div class="dot_circle9 dot_circles"></div>
+                        <div class="dot_circle10 dot_circles"></div>
+                        <div class="dot_circle11 dot_circles"></div>
+                        <div class="dot_circle12 dot_circles"></div>
+                        <div class="dot_circle13 dot_circles"></div>
+                        <div class="dot_circle14 dot_circles"></div>
+                        <div class="dot_circle15 dot_circles"></div>
+                        <div class="dot_circle16 dot_circles"></div>
+                        <div class="dot_circle17 dot_circles"></div>
+                        <div class="dot_circle18 dot_circles"></div>
+                        <div class="dot_circle19 dot_circles"></div>
+                        <div class="dot_circle20 dot_circles"></div>
+                    </div>
+                    <div class="stroke_circles1"></div>
+                    <div class="stroke_circles2"></div>
+                    <div class="stroke_circles3"></div>
+                    <div class="stroke_circles4"></div>
+                    <div class="stroke_circles5"></div>
+                    <div class="stroke_circles6"></div>
+                    <div class="stroke_circles7"></div>
+                    <div class="stroke_circles8"></div>
+                    <div class="background_fade"></div>
+                </div>
+            </div>
+
+            <div class="bucket_wrapper">
+
+                <div id="general_description" class="bucket">
+                    <div class="general_left">
+                    <div class="waste_water_info">
+                        <h2 id="general_number">90</h2>
+                    </div>                        
+                        <p class="percent">percent</p>
+                    </div>
+                    <div class="general_right">
+                        <h3>of wastewater that receives treatment</h3>
+                        <div class="graph_animate">
+                            <!-- <ul>
+                                <li id="general_bars">
+                                </li>
+                                <li id="general_dots">
+                                </li>
+                            </ul> -->
+                            <img src="images/general_dl_top.png" alt="">
+                            <div class="bar_graph_wrapper">
+                                <div id="general_bar_load">
+                                    <div class="percent_of_waste_water_chart" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p id="general_country_description">
+                            The reduction of water scarcity is a goal of many countries and governments. The UN recognizes the importance of reducing the number of people without sustainable access to clean water and sanitation. The Millennium Development Goals within the United Nations Millennium Declaration state that by 2015 they resolve to "halve the proportion of people who are unable to reach or to afford safe drinking water.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="bar_graph_left" class="bucket">
+
+                    
+                    <ul class="left_dl_bars">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+                    <div class="left_design_elements">
+                        <div class="top_element">
+                            <ul class="left_dl_lines">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="availability_wrapper">
+                        <h3>Access to fresh water over the last 20 years</h3>
+                        <div id="availability_main" class="last_bar_chart_indicator">
+                        <h2 id="availability_number">76%</h2>
+                        <div id="availability_year" class="last_bar_chart_indicator_graph"></div>
+                        </div>
+                        <p id="availability_p">Water scarcity is the lack of sufficient available water resources to meet the demands of water usage within a region. It already affects every continent and around 2.8 billion people around the world at least one month out of every year. More than 1.2 billion people lack access to clean drinking water.</p>
+                        
+                        <div id="availabilty_bar_graph">
+                            <div id="bar_chart"></div>                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="bar_graph_right" class="bucket">
+                    
+                    <div id="twitterFeed">
+                        <h2>#waterscarcity</h2>
+                        <div id="example1"></div>
+                    </div>
+
+                    <h3>child mortailty rate</h3>
+                    <svg id="line_chart" width="1000" height="500"></svg>
+                    <ul class="lines_right">
+                        <li class="bar1"></li>
+                        <li class="bar2"></li>
+                        <li class="bar3"></li>
+                        <li class="bar4"></li>
+                    </ul>
+                </div>
+
+                <div id="pie_graph_top" class="bucket">
+                    <h3>Other Environmental Issues</h3>
+<!--                     <h2>Query 6: Last 3 Twitter posts using hastag #API with custom date formatter</h2>
+                    <div id="twitter_call"></div>    --> 
+                    <div id='outer' style="width: 1000px; height:800px; margin: 0px auto; margin-top:20px; padding:10px">
+                        <div id="main" style="width:1000px; height:200px; margin: 0px auto; ">
+                            <div id="div1"></div>
+                            <div id="div2"></div>
+                            <div id="div3"></div>
+                            <div id="div4"></div>
+                            <div id="div5"></div>
+                            <div id="div6"></div>
+                        </div>
+                    </div>
+                    <ul class="pie_graph_animation">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="pie_graph_animation pie_graph_animation_2">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <footer id="next_five">
+                <h3>Top five countries with scarcest water</h3>
+                <ul class="bottom_animation">
+                    <li class="animate1"></li>
+                    <li class="animate2"></li>
+                    <li class="animate3"></li>
+                    <li class="animate4"></li>
+                    <li class="animate5"></li>
+                    <li class="animate6"></li>
+                    <li class="animate7"></li>
+                    <li class="animate8"></li>
+                    <li class="animate9"></li>
+                    <li class="animate10"></li>
+                    <li class="animate11"></li>
+                    <li class="animate12"></li>
+                    <li class="animate13"></li>
+                    <li class="animate14"></li>
+                    <li class="animate15"></li>
+                    <li class="animate16"></li>
+                    <li class="animate17"></li>
+                    <li class="animate18"></li>
+                    <li class="animate19"></li>
+                    <li class="animate20"></li>
+                    <li class="animate21"></li>
+                    <li class="animate22"></li>
+                    <li class="animate23"></li>
+                    <li class="animate24"></li>
+                    <li class="animate25"></li>
+                    <li class="animate26"></li>
+                    <li class="animate27"></li>
+                    <li class="animate28"></li>
+                    <li class="animate29"></li>
+                    <li class="animate30"></li>
+                    <li class="animate31"></li>
+                    <li class="animate32"></li>
+                    <li class="animate33"></li>
+                    <li class="animate34"></li>
+                    <li class="animate35"></li>
+                    <li class="animate36"></li>
+                    <li class="animate37"></li>
+                    <li class="animate38"></li>
+                    <li class="animate39"></li>
+                    <li class="animate40"></li>
+                    <li class="animate41"></li>
+                    <li class="animate42"></li>
+                    <li class="animate43"></li>
+                    <li class="animate44"></li>
+                    <li class="animate45"></li>
+                    <li class="animate46"></li>
+                    <li class="animate47"></li>
+                    <li class="animate48"></li>
+                    <li class="animate49"></li>
+                    <li class="animate50"></li>
+                    <li class="animate51"></li>
+                    <li class="animate52"></li>
+                    <li class="animate53"></li>
+                    <li class="animate54"></li>
+                    <li class="animate55"></li>
+                    <li class="animate56"></li>
+                    <li class="animate57"></li>
+                    <li class="animate58"></li>
+                    <li class="animate59"></li>
+                    <li class="animate60"></li>
+                    <li class="animate61"></li>
+                    <li class="animate62"></li>
+                    <li class="animate63"></li>
+                    <li class="animate64"></li>
+                    <li class="animate65"></li>
+                    <li class="animate66"></li>
+                    <li class="animate67"></li>
+                    <li class="animate68"></li>
+                    <li class="animate69"></li>
+                    <li class="animate70"></li>
+                    <li class="animate71"></li>
+                    <li class="animate72"></li>
+                    <li class="animate73"></li>
+                    <li class="animate74"></li>
+                    <li class="animate75"></li>
+                    <li class="animate76"></li>
+                    <li class="animate77"></li>
+                    <li class="animate78"></li>
+                    <li class="animate79"></li>
+                    <li class="animate80"></li>
+                    <li class="animate81"></li>
+                    <li class="animate82"></li>
+                    <li class="animate83"></li>
+                    <li class="animate84"></li>
+                    <li class="animate85"></li>
+                    <li class="animate86"></li>
+                    <li class="animate87"></li>
+                    <li class="animate88"></li>
+                    <li class="animate89"></li>
+                    <li class="animate90"></li>
+                    <li class="animate91"></li>
+                    <li class="animate92"></li>
+                    <li class="animate93"></li>
+                    <li class="animate94"></li>
+                    <li class="animate95"></li>
+                    <li class="animate96"></li>
+                    <li class="animate97"></li>
+                    <li class="animate98"></li>
+                    <li class="animate99"></li>
+                    <li class="animate100"></li>
+                    <li class="animate101"></li>
+                    <li class="animate102"></li>
+                    <li class="animate103"></li>
+                    <li class="animate104"></li>
+                    <li class="animate105"></li>
+                    <li class="animate106"></li>
+                    <li class="animate107"></li>
+                    <li class="animate108"></li>
+                    <li class="animate109"></li>
+                    <li class="animate110"></li>
+                    <li class="animate111"></li>
+                    <li class="animate112"></li>
+                    <li class="animate113"></li>
+                    <li class="animate114"></li>
+                    <li class="animate115"></li>
+                    <li class="animate116"></li>
+                    <li class="animate117"></li>
+                    <li class="animate118"></li>
+                    <li class="animate119"></li>
+                    <li class="animate120"></li>
+                    <li class="animate121"></li>
+                    <li class="animate122"></li>
+                    <li class="animate123"></li>
+                    <li class="animate124"></li>
+                    <li class="animate125"></li>
+                    <li class="animate126"></li>
+                    <li class="animate127"></li>
+                    <li class="animate128"></li>
+                    <li class="animate129"></li>
+                    <li class="animate130"></li>
+                    <li class="animate131"></li>
+                    <li class="animate132"></li>
+                    <li class="animate133"></li>
+                    <li class="animate134"></li>
+                    <li class="animate135"></li>
+                    <li class="animate136"></li>
+                    <li class="animate137"></li>
+                    <li class="animate138"></li>
+                    <li class="animate139"></li>
+                    <li class="animate140"></li>
+                    <li class="animate141"></li>
+                    <li class="animate142"></li>
+                    <li class="animate143"></li>
+                    <li class="animate144"></li>
+                    <li class="animate145"></li>
+                    <li class="animate146"></li>
+                    <li class="animate147"></li>
+                    <li class="animate148"></li>
+                    <li class="animate149"></li>
+                    <li class="animate150"></li>
+                    <li class="animate151"></li>
+                    <li class="animate152"></li>
+                    <li class="animate153"></li>
+                    <li class="animate154"></li>
+                    <li class="animate155"></li>
+                    <li class="animate156"></li>
+                    <li class="animate157"></li>
+                    <li class="animate158"></li>
+                    <li class="animate159"></li>
+                    <li class="animate160"></li>
+                    <li class="animate161"></li>
+                    <li class="animate162"></li>
+                    <li class="animate163"></li>
+                    <li class="animate164"></li>
+                    <li class="animate165"></li>
+                    <li class="animate166"></li>
+                    <li class="animate167"></li>
+                    <li class="animate168"></li>
+                    <li class="animate169"></li>
+                    <li class="animate170"></li>
+                    <li class="animate171"></li>
+                    <li class="animate172"></li>
+                    <li class="animate173"></li>
+                    <li class="animate174"></li>
+                    <li class="animate175"></li>
+                    <li class="animate176"></li>
+                    <li class="animate177"></li>
+                    <li class="animate178"></li>
+                    <li class="animate179"></li>
+                    <li class="animate180"></li>
+                    <li class="animate181"></li>
+                    <li class="animate182"></li>
+                    <li class="animate183"></li>
+                    <li class="animate184"></li>
+                    <li class="animate185"></li>
+                    <li class="animate186"></li>
+                    <li class="animate187"></li>
+                    <li class="animate188"></li>
+                    <li class="animate189"></li>
+                    <li class="animate190"></li>
+                    <li class="animate191"></li>
+                    <li class="animate192"></li>
+                    <li class="animate193"></li>
+                    <li class="animate194"></li>
+                    <li class="animate195"></li>
+                    <li class="animate196"></li>
+                    <li class="animate197"></li>
+                    <li class="animate198"></li>
+                    <li class="animate199"></li>
+                    <li class="animate200"></li>
+                    <li class="animate201"></li>
+                    <li class="animate202"></li>
+                    <li class="animate203"></li>
+                    <li class="animate204"></li>
+                    <li class="animate205"></li>
+                    <li class="animate206"></li>
+                    <li class="animate207"></li>
+                    <li class="animate208"></li>
+                    <li class="animate209"></li>
+                    <li class="animate210"></li>
+                    <li class="animate211"></li>
+                    <li class="animate212"></li>
+                    <li class="animate213"></li>
+                    <li class="animate214"></li>
+                    <li class="animate215"></li>
+                    <li class="animate216"></li>
+                    <li class="animate217"></li>
+                    <li class="animate218"></li>
+                    <li class="animate219"></li>
+                    <li class="animate220"></li>
+                    <li class="animate221"></li>
+                    <li class="animate222"></li>
+                    <li class="animate223"></li>
+                    <li class="animate224"></li>
+                    <li class="animate225"></li>
+                </ul>
+                <ul id="five_placeholder">
+                    <li>
+                        <img src="images/water_drop.png" alt="">
+                        <p><span>1 </span>Uraguay</p>
+                    </li>
+                    <li>
+                        <img src="images/water_drop.png" alt="">
+                        <p><span>2 </span>Niger</p>
+                    </li>
+                    <li>
+                        <img src="images/water_drop.png" alt="">
+                        <p><span>3 </span>Tawain</p>
+                    </li>
+                    <li>
+                        <img src="images/water_drop.png" alt="">
+                        <p><span>4 </span>Algeria</p>
+                    </li>
+                    <li>
+                        <img src="images/water_drop.png" alt="">
+                        <p><span>5 </span>Venezuala</p>
+                    </li>
+                </ul>
+            </footer>
+
+                    <div class="bar_chart_container usa_bar_chart">
+                        <div id="chart"></div>
+                    </div>
+    </div>
+
+
+        </div>
+
+        <script src="js/vis.js"></script>
+        <script src="charts_js/circular_chart_info.js"></script>
+        <script src="charts_js/bar_chart_info.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+        <script type="text/javascript" src="js/twitterFetcher.js"></script>
+        <script type="text/javascript" src="js/exampleUsage.js"></script>        
+    
+    <script>
+
+        if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+        var container, stats;
+        var camera, scene, renderer, particles, geometry, materials = [], parameters, i, h, color, size;
+        var mouseX = 0, mouseY = 0;
+
+        var windowHalfX = window.innerWidth / 2;
+        var windowHalfY = window.innerHeight / 2;
+
+        init();
+        animate();
+
+        function init() {
+
+            container = document.createElement( 'div' );
+            container.setAttribute("id", "particle_board");
+            document.body.appendChild( container );
+
+            camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 3000 );
+            camera.position.z = 1000;
+
+            scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2( 0x000000, 0.0007 );
+
+            geometry = new THREE.Geometry();
+
+            for ( i = 0; i < 200; i ++ ) {
+
+                var vertex = new THREE.Vector3();
+                vertex.x = Math.random() * 2000 - 1000;
+                vertex.y = Math.random() * 2000 - 1000;
+                vertex.z = Math.random() * 2000 - 1000;
+
+                geometry.vertices.push( vertex );
+
+            }
+
+            parameters = [
+                [ [0.85, 1, 0.5], 2 ],
+                [ [0.80, 1, 0.5], 1 ]
+            ];
+
+            for ( i = 0; i < parameters.length; i ++ ) {
+
+                color = parameters[i][0];
+                size  = parameters[i][1];
+
+                materials[i] = new THREE.PointCloudMaterial( { size: size } );
+
+                particles = new THREE.PointCloud( geometry, materials[i] );
+
+                particles.rotation.x = Math.random() * 1;
+                particles.rotation.y = Math.random() * 1;
+                particles.rotation.z = Math.random() * 1;
+
+                scene.add( particles );
+
+            }
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            container.appendChild( renderer.domElement );
+
+            stats = new Stats();
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.top = '0px';
+            container.appendChild( stats.domElement );
+
+            document.addEventListener( 'mousemove', onDocumentMouseMove, true );
+            document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+            document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+
+            //
+
+            window.addEventListener( 'resize', onWindowResize, false );
+
+        }
+
+        function onWindowResize() {
+
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize( window.innerWidth, window.innerHeight );
+
+        }
+
+        function onDocumentMouseMove( event ) {
+
+            mouseX = event.clientX - windowHalfX;
+            mouseY = event.clientY - windowHalfY;
+
+        }
+
+        function onDocumentTouchStart( event ) {
+
+            if ( event.touches.length === 1 ) {
+
+                event.preventDefault();
+
+                mouseX = event.touches[ 0 ].pageX - windowHalfX;
+                mouseY = event.touches[ 0 ].pageY - windowHalfY;
+
+            }
+
+        }
+
+        function onDocumentTouchMove( event ) {
+
+            if ( event.touches.length === 1 ) {
+
+                event.preventDefault();
+
+                mouseX = event.touches[ 0 ].pageX - windowHalfX;
+                mouseY = event.touches[ 0 ].pageY - windowHalfY;
+
+            }
+
+        }
+
+        //
+
+        function animate() {
+
+            requestAnimationFrame( animate );
+
+            render();
+            stats.update();
+
+        }
+
+        function render() {
+
+            var time = Date.now() * 0.00001;
+
+            camera.position.x += ( mouseX - camera.position.x ) * 0.0005;
+            camera.position.y += ( - mouseY - camera.position.y ) * 0.00005;
+
+            camera.lookAt( scene.position );
+
+            for ( i = 0; i < scene.children.length; i ++ ) {
+
+                var object = scene.children[ i ];
+
+                if ( object instanceof THREE.PointCloud ) {
+
+                    object.rotation.y = time * ( i < 4 ? i + 1 : - ( i + 1 ) );
+
+                }
+
+            }
+
+            for ( i = 0; i < materials.length; i ++ ) {
+
+                color = parameters[i][0];
+
+                h = ( 360 * ( color[0] + time ) % 360 ) / 360;
+                materials[i].color.setHSL( h, color[1], color[1] );
+
+            }
+
+            renderer.render( scene, camera );
+
+        }
+
+    </script>
+
+   <!-- // <script>
+    //     var config6 = {
+    //       "id": '541736977255915521',
+    //       "domId": 'twitter_call',
+    //       "maxTweets": 2,
+    //       "enableLinks": true,
+    //       "showUser": false,
+    //       "showTime": true,
+    //       "dateFunction": momentDateFormatter,
+    //       "showRetweet": false
+    //     };
+    // </script>-->
+
+    </body>
+</html>

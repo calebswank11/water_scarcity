@@ -1,0 +1,1 @@
+var config6={id:"541736977255915521",domId:"twitter_call",maxTweets:2,enableLinks:!0,showUser:!1,showTime:!0,dateFunction:momentDateFormatter,showRetweet:!1};
